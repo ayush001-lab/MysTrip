@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    // Initialize the carousel for larger screens
     if (window.innerWidth >= 769) {
         $('.carousel').slick({
             dots: true,
@@ -14,7 +13,7 @@ $(document).ready(function () {
         });
     }
 
-    // Change header background on scroll
+    
     $(window).scroll(function () {
         if ($(window).scrollTop() > 50) {
             $('#header').addClass('solid');
@@ -28,21 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const sliderWrapper = document.querySelector(".slider-wrapper");
     const flexboxes = Array.from(slider.children);
     let currentIndex = 0;
-  
-    // Clone items to create an infinite loop
     flexboxes.forEach((flexbox) => {
       const clone = flexbox.cloneNode(true);
       slider.appendChild(clone);
     });
   
     const updateSliderPosition = () => {
-      const flexboxWidth = document.querySelector(".flexbox").offsetWidth + 20; // Including margin
+      const flexboxWidth = document.querySelector(".flexbox").offsetWidth + 20; 
       slider.style.transform = `translateX(-${currentIndex * flexboxWidth}px)`;
       slider.style.transition = "transform 0.5s ease";
     };
   
     const resetSliderPosition = () => {
-      slider.style.transition = "none"; // Reset transition for seamless loop
+      slider.style.transition = "none"; 
       const totalItems = slider.children.length / 2;
       currentIndex = currentIndex % totalItems;
       slider.style.transform = `translateX(-${currentIndex * (document.querySelector(".flexbox").offsetWidth + 20)}px)`;
@@ -55,31 +52,28 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentIndex >= slider.children.length / 2) {
           resetSliderPosition();
         }
-      }, 500); // Adjust to match transition duration
+      }, 500);
     };
   
-    // Initialize auto-slide
-    let autoSlideInterval = setInterval(autoSlide, 3000); // Adjust interval for auto-slide speed
-  
-    // Manual Control with Buttons
+    
+    let autoSlideInterval = setInterval(autoSlide, 3000); 
     const prevBtn = document.querySelector(".prev-btn");
     const nextBtn = document.querySelector(".next-btn");
   
     prevBtn.addEventListener("click", () => {
-      clearInterval(autoSlideInterval); // Stop auto-slide temporarily
+      clearInterval(autoSlideInterval); 
       currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
       updateSliderPosition();
-      autoSlideInterval = setInterval(autoSlide, 3000); // Resume auto-slide
+      autoSlideInterval = setInterval(autoSlide, 3000); 
     });
   
     nextBtn.addEventListener("click", () => {
-      clearInterval(autoSlideInterval); // Stop auto-slide temporarily
+      clearInterval(autoSlideInterval); 
       currentIndex = (currentIndex + 1) % slider.children.length;
       updateSliderPosition();
-      autoSlideInterval = setInterval(autoSlide, 3000); // Resume auto-slide
+      autoSlideInterval = setInterval(autoSlide, 3000); 
     });
   
-    // Add "Details" button dynamically
     slider.addEventListener("mouseover", (event) => {
       if (event.target.closest(".flexbox")) {
         const flexbox = event.target.closest(".flexbox");
@@ -92,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   
-    // Recalculate on resize
+
     window.addEventListener("resize", updateSliderPosition);
   });
   
