@@ -1,31 +1,42 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  font-family: 'Inter';
 }
+
 
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 15px;
-  background: rgba(255, 165, 0, 0.2);
+  padding: 18px;
+  background: rgb(221,131, 46);
   backdrop-filter: blur(5px);
   z-index: 1000;
   transition: background 0.3s;
 }
 header.solid {
-  background: orange;
+  background: rgb(221,131, 46);
 }
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
+  margin-right: 40px;
 }
 nav .nav-links {
   display: flex;
   flex-wrap: nowrap;
+}
+nav .nav-links .learn:hover{
+  transform: scale(1.05);
+}
+nav .nav-links .about:hover{
+  transform: scale(1.05);
+}
+nav .nav-links .contact:hover{
+  transform: scale(1.05);
 }
 nav a {
   color: white;
@@ -35,14 +46,20 @@ nav a {
   white-space: nowrap;
 }
 
+
 .carousel-container {
   position: relative;
-  margin-top: 60px; 
-}
+  margin-top: 50px; 
 .carousel {
   display: none; 
 }
-.carousel img {
+.carousel .img1 {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  filter: blur(3px);
+}
+.carousel .img2 {
   width: 100%;
   height: auto;
   border-radius: 10px;
@@ -52,28 +69,70 @@ nav a {
   text-align: center;
   color: white;
 }
-.carousel .slide h2 {
+.carousel .slide h1 {
   position: absolute;
   top: 40%;
-  left: 50%;
+  left: 25%;
   transform: translate(-50%, -50%);
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  font-size: 6rem;
+  font-family: 'Inter';
+}
+.carousel .slide h3{
+  position: absolute;
+  top: 40%;
+  left: 23%;
+  padding-bottom: 2%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  font-family: 'Inter';
+}
+.carousel .slide .g33{
+  position: absolute;
+  top: 80%;
+  left: 21%;
+  padding-bottom: 2%;
+  transform: translate(-50%, -50%);
+  
 }
 .carousel .slide button {
   position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 22.5%;
   padding: 10px 20px;
-  background: orange;
+  background: rgb(221,131, 46);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
+  transition: transform .2s ease-in-out;
+}
+.carousel .slide button:hover{
+  transform: scale(1.2) ;
 }
 
+.t1{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  
+}
+
+.t2{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+.text{
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  text-size-adjust: 10%;
+}
+/* Mobile Image */
 .mobile-image {
   display: none;
   text-align: center;
@@ -133,8 +192,9 @@ nav a {
   cursor: pointer;
 }
 .slick-dots .slick-active button {
-  background: orange;
+  background:  rgb(221,131, 46);
 }
+
 
 .slider-container {
   position: relative;
@@ -151,17 +211,14 @@ nav a {
   width: 100%;
 }
 
-
 .slider {
   display: flex;
   transition: transform 0.3s ease-in-out;
 }
-
-
 .flexbox {
   position: relative;
-  min-width: calc(33.33% - 20px);
-  height: 350px; 
+  min-width: calc(33.33% - 20px); /* Adjusted width */
+  height: 550px; /* Increased height */
   margin: 10px;
   background: white;
   border-radius: 10px;
@@ -187,17 +244,17 @@ nav a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(5px); 
+  filter: blur(0);
   transition: transform 0.3s, filter 0.3s; 
 }
 
 .flexbox:hover .image-container img {
-  filter: blur(0); 
+  filter: blur(5px); 
   transform: scale(1.1); 
 }
 
 
-.description {
+  .description {
   position: relative;
   padding: 15px;
   text-align: center;
@@ -220,7 +277,7 @@ nav a {
   left: 50%;
   transform: translateX(-50%);
   padding: 5px 15px;
-  background: orange;
+  background:  rgb(221,131, 46);
   color: white;
   border: none;
   border-radius: 5px;
@@ -235,11 +292,12 @@ nav a {
   pointer-events: auto;
 }
 
+
 .slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: orange;
+  background: rgb(221,131, 46);
   color: white;
   border: none;
   border-radius: 50%;
@@ -255,7 +313,7 @@ nav a {
 }
 
 .slider-btn:hover {
-  background: darkorange;
+  background:  rgb(221,131, 46);
 }
 
 .prev-btn {
@@ -268,7 +326,7 @@ nav a {
 
 
 footer {
-  background: orange;
+  background:  rgb(221,131, 46);
   color: white;
   padding: 20px;
   text-align: center;
@@ -279,6 +337,7 @@ footer .social-icons a {
   text-decoration: none;
   font-size: 1.2rem;
 }
+
 
 @media (min-width: 769px) {
   .carousel {
@@ -296,3 +355,20 @@ footer .social-icons a {
     display: block !important;
   }
 }
+@media (min-width: 769px) {
+  .slider-container{
+    display: block;
+  }
+  .mobile-image {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .slider-container {
+    display: none !important;
+  }
+  .mobile-image {
+    display: block !important;
+  }
+}
+
