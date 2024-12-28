@@ -1,96 +1,54 @@
-$(document).ready(function () {
-   
-    if (window.innerWidth >= 769) {
-        $('.carousel').slick({
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            adaptiveHeight: true,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            prevArrow: '<button class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-            nextArrow: '<button class="slick-next"><i class="fas fa-chevron-right"></i></button>'
-        });
-    }
-
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > 50) {
-            $('#header').addClass('solid');
-        } else {
-            $('#header').removeClass('solid');
-        }
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
     });
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      const params = {
+        from_name: name,
+        email_id: email,
+        message: message,
+      };
+
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+        .then(function (response) {
+          alert('Message sent successfully!');
+          contactForm.reset();
+        }, function (error) {
+          alert('Failed to send message. Please try again.');
+          console.log('Error:', error);
+        });
+    });
+  }
+
+  const radioButtons = document.querySelectorAll('input[name="form-toggle"]');
+  const generalForm = document.getElementById('general-form');
+  const itineraryForm = document.getElementById('itinerary-form');
+
+  if (radioButtons.length && generalForm && itineraryForm) {
+    radioButtons.forEach(button => {
+      button.addEventListener('change', (e) => {
+        if (e.target.value === 'general') {
+          generalForm.classList.add('active');
+          itineraryForm.classList.remove('active');
+        } else {
+          itineraryForm.classList.add('active');
+          generalForm.classList.remove('active');
+        }
+      });
+    });
+  }
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.querySelector(".slider");
-  const sliderWrapper = document.querySelector(".slider-wrapper");
-  const flexboxes = Array.from(slider.children);
-  let currentIndex = 0;
-
-  
-  flexboxes.forEach((flexbox) => {
-    const clone = flexbox.cloneNode(true);
-    slider.appendChild(clone);
-  });
-
-  const updateSliderPosition = () => {
-    const flexboxWidth = document.querySelector(".flexbox").offsetWidth + 20; 
-    slider.style.transform = `translateX(-${currentIndex * flexboxWidth}px)`;
-  };
-
-  const resetSliderPosition = () => {
-    slider.style.transition = "none";
-    const totalItems = slider.children.length / 2;
-    currentIndex = currentIndex % totalItems;
-    slider.style.transform = `translateX(-${currentIndex * (document.querySelector(".flexbox").offsetWidth + 20)}px)`;
-  };
-
-  const autoSlide = () => {
-    currentIndex++;
-    updateSliderPosition();
-    setTimeout(() => {
-      if (currentIndex >= slider.children.length / 2) {
-        resetSliderPosition();
-      }
-    }, 500);
-  };
-
-  let autoSlideInterval = setInterval(autoSlide, 3000);
-
-  
-  const prevBtn = document.querySelector(".prev-btn");
-  const nextBtn = document.querySelector(".next-btn");
-
-  prevBtn.addEventListener("click", () => {
-    clearInterval(autoSlideInterval);
-    currentIndex = (currentIndex - 1 + slider.children.length) % slider.children.length;
-    updateSliderPosition();
-    autoSlideInterval = setInterval(autoSlide, 3000);
-  });
-
-  nextBtn.addEventListener("click", () => {
-    clearInterval(autoSlideInterval);
-    currentIndex = (currentIndex + 1) % slider.children.length;
-    updateSliderPosition();
-    autoSlideInterval = setInterval(autoSlide, 3000);
-  });
-
-  
-  slider.addEventListener("mouseover", (event) => {
-    if (event.target.closest(".flexbox")) {
-      const flexbox = event.target.closest(".flexbox");
-      if (!flexbox.querySelector(".details-btn")) {
-        const detailsBtn = document.createElement("button");
-        detailsBtn.classList.add("details-btn");
-        detailsBtn.innerText = "Details";
-        flexbox.appendChild(detailsBtn);
-      }
-    }
-  });
-
-  
-  window.addEventListener("resize", updateSliderPosition);
-});
-
-
