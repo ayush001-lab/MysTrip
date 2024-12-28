@@ -1,217 +1,339 @@
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
   color: #333;
   line-height: 1.6;
 }
 
-/* Header Styles */
+/* Header */
 header {
-  background-color: #f68a1e;
-  color: #fff;
-  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px;
+  background: #F68A1E;
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  transition: background 0.3s;
+}
+header.solid {
+  background: #F68A1E;
+}
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  color: white;
+  margin-right: 40px;
 }
-
-header h1 {
-  font-size: 24px;
-  margin: 0;
-}
-
-nav {
+nav .nav-links {
   display: flex;
-  align-items: center;
+  flex-wrap: nowrap;
 }
-
-nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
+nav .nav-links .learn:hover{
+  transform: scale(1.05);
 }
-
-nav ul li {
-  margin: 0 15px;
+nav .nav-links .about:hover{
+  transform: scale(1.05);
 }
-
-nav ul li a {
-  color: #fff;
+nav .nav-links .contactss:hover{
+  transform: scale(1.05);
+}
+nav a {
+  color: white;
   text-decoration: none;
-  font-weight: 600;
+  margin: 0 10px;
+  white-space: nowrap;
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  margin: 3px 0;
-}
-
-.mobile-nav {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #f68a1e;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-}
-
-.mobile-nav ul {
-  flex-direction: column;
-}
-
-.mobile-nav ul li {
-  margin: 10px 0;
-}
-
-.mobile-nav ul li a {
-  color: #fff;
-  font-size: 18px;
-}
-
-.mobile-nav.active {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Hero Section */
-.hero {
+/* Carousel */
+.carousel-container {
   position: relative;
-  text-align: center;
-  color: #fff;
+  margin-top: 50px; /* Ensures the header and carousel meet */
 }
-
-.hero img {
+.carousel {
+  display: none; /* Hidden on mobile */
+}
+.carousel .img1 {
   width: 100%;
   height: auto;
+  border-radius: 10px;
+  filter: blur(3px);
 }
-
-.hero-content {
+.carousel .img2 {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.carousel .slide {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.carousel .slide h1 {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  font-family: 'poppins';
+}
+.carousel .slide h3{
+  position: absolute;
+  top: 40%;
+  left: 23%;
+  padding-bottom: 2%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  font-family: 'poppins';
+}
+.carousel .slide .g33{
+  position: absolute;
+  top: 80%;
+  left: 21%;
+  padding-bottom: 2%;
+  transform: translate(-50%, -50%);
+  
+}
+.carousel .slide button {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.hero h2 {
-  font-size: 48px;
-  margin: 10px 0;
-  text-transform: capitalize;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.hero .btn {
+  left: 22.5%;
   padding: 10px 20px;
+  background: #F68A1E;
+  color: white;
   border: none;
-  background-color: #fff;
-  color: #f68a1e;
-  text-transform: uppercase;
-  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform .2s ease-in-out;
+}
+.carousel .slide button:hover{
+  transform: scale(1.2) ;
+}
+
+.t1{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  
+}
+
+.t2{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+.text{
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  text-size-adjust: 10%;
+}
+/* Mobile Image */
+.mobile-image {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+.mobile-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+.mobile-image p {
+  font-size: 1.2rem;
+}
+
+/* Slick Carousel Customization */
+.slick-prev, .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
-
-/* Top Destinations Section */
-.destinations {
-  padding: 60px 20px;
-  text-align: center;
+.slick-prev {
+  left: 10px;
 }
-
-.destinations h3 {
-  font-size: 36px;
-  margin-bottom: 20px;
+.slick-next {
+  right: 10px;
 }
-
-.destinations p {
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto 40px;
-}
-
-.destinations-grid {
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.slick-dots li {
+  margin: 0 5px;
+}
+.slick-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+}
+.slick-dots .slick-active button {
+  background:#F68A1E;
+}
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 40px auto;
+  overflow: hidden;
+  display: flex;
   align-items: center;
 }
 
-.destination-card {
+/* Slider Wrapper */
+.slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Slider */
+.slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Flexbox Styling */
+.flexbox {
   position: relative;
+  min-width: calc(25% - 20px); /* Adjusted width */
+  height: 390px; /* Increased height */
+  margin: 10px;
+  background: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
-.destination-card:hover {
+.flexbox:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.destination-card img {
+/* Image Container */
+.image-container {
+  position: relative;
+  height: 100%; /* Increased height for images */
+  overflow: hidden;
+}
+
+.image-container img {
   width: 100%;
-  height: 400px;
+  height: 100%;
   object-fit: cover;
+  filter: blur(0); /* Initial blur effect */
+  transition: transform 0.3s, filter 0.3s; /* Smooth transition for hover */
 }
 
-.destination-card h4 {
+.flexbox:hover .image-container img {
+  filter: blur(5px); /* Clear image on hover */
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+
+
+.details-btn {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  padding: 5px 10px;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 15px;
+  background: #F68A1E;
+  color: white;
+  border: none;
   border-radius: 5px;
-  font-size: 18px;
-  transition: opacity 0.3s;
+  font-size: 0.9rem;
+  text-decoration: none; /* Ensure link styles are removed */
+  display: none;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
 }
 
-.destination-card:hover h4 {
-  opacity: 0;
+.flexbox:hover .details-btn {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1.1); /* Slightly enlarge on hover */
 }
 
-.destination-card .details-btn {
+.details-btn:hover {
+  background: #F68A1E; /* Optional: change background color on hover */
+}
+
+
+/* Slider Buttons */
+.slider-btn {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s;
+  transform: translateY(-50%);
+  background: #F68A1E;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 100;
+  transition: background 0.3s;
 }
 
-.destination-card:hover .details-btn {
-  opacity: 1;
+.slider-btn:hover {
+  background: #F68A1E;
 }
 
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.t3{
+  scale: 1.4;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%; 
+}
 /* Contact Section */
 .contact {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f6f9fc;
+  font-family: 'poppins', sans-serif;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,25 +343,35 @@ nav ul li a {
 .form-container {
   width: 100%;
   max-width: 900px;
-  background: #ffffff;
+  background: #E5E4E4;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
+
 }
 
+.form-container .img40{
+  position: absolute;
+  left: 62%;
+  scale: 0.8;
+  top: -7%;
+}
 .form-container h2 {
   margin: 0 0 20px;
   font-size: 24px;
-  text-align: center;
+  text-align: left;
+  font-family: 'poppins',sans-serif;
+  font-weight: bold;
 }
 
 .radio-group {
   display: flex;
-  justify-content: center;
+  justify-content:left;
   gap: 30px;
   margin-bottom: 20px;
+  accent-color: #F68A1E;
 }
 
 .radio-group label {
@@ -255,6 +387,7 @@ nav ul li a {
 
 .form {
   display: none;
+  
 }
 
 .form.active {
@@ -264,6 +397,7 @@ nav ul li a {
 
 .form-group {
   margin-bottom: 20px;
+  
 }
 
 .form-group label {
@@ -271,22 +405,25 @@ nav ul li a {
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: bold;
+  font-family: 'poppins',sans-serif;
+  
 }
 
 .form-group input,
 .form-group textarea {
-  width: 100%;
+  width: 50%;
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 10px;
   outline: none;
   transition: border-color 0.3s;
+  font-family: 'poppins',sans-serif;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #007BFF;
+  border-color: black;
 }
 
 .form-group textarea {
@@ -295,19 +432,20 @@ nav ul li a {
 }
 
 .form-group button {
-  width: 100%;
-  background-color: #007BFF;
+  width: 52%;
+  background-color: black;
   color: white;
   border: none;
   padding: 12px 20px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 10px;
   transition: background-color 0.3s ease-in-out;
+  font-family: 'poppins',sans-serif;
 }
 
 .form-group button:hover {
-  background-color: #0056b3;
+  background-color:  #F68A1E;
 }
 
 .decoration {
@@ -362,6 +500,8 @@ nav ul li a {
   }
 }
 
+
+
 /* Footer */
 
 /* Wrapper to handle the curve */
@@ -378,7 +518,7 @@ nav ul li a {
   left: 0;
   width: 100%;
   height: 100px;
-  background: #f8fdfd; /* Light background color */
+  background: white; /* Light background color */
   border-radius: 0 0 50% 50%; /* Creates the curve */
   z-index: 1;
 }
@@ -387,7 +527,7 @@ nav ul li a {
 footer {
   position: relative;
   background-color: #f68a1e;
-  color: #fff;
+  color: white;
   padding: 40px 20px;
 }
 
@@ -466,39 +606,38 @@ footer {
   font-size: 14px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  nav ul {
+
+/* Responsive Design */
+@media (min-width: 769px) {
+  .carousel {
+    display: block;
+  }
+  .mobile-image {
     display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .mobile-nav {
-    display: none;
-  }
-
-  .mobile-nav.active {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .destinations-grid {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .destination-card {
-    width: 90%;
-  }
-
-  .hero h2 {
-    font-size: 36px;
-  }
-
-  .hero p {
-    font-size: 16px;
   }
 }
+@media (max-width: 768px) {
+  .carousel {
+    display: none !important;
+  }
+  .mobile-image {
+    display: block !important;
+  }
+}
+@media (min-width: 769px) {
+  .slider-container{
+    display: block;
+  }
+  .mobile-image {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .slider-container {
+    display: none !important;
+  }
+  .mobile-image {
+    display: block !important;
+  }
+}
+
