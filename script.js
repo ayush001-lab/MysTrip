@@ -176,3 +176,22 @@ if (radioButtons.length && generalForm && itineraryForm) {
     });
   });
 }
+document.getElementById('request-itinerary-btn').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  var templateParams = {
+      name: document.getElementById('itinerary-name').value,
+      contact: document.getElementById('itinerary-contact').value,
+      age: document.getElementById('itinerary-age').value,
+      days: document.getElementById('itinerary-no.ofdays').value,
+      people: document.getElementById('itinerary-no.ofPeople').value,
+      expectations: document.getElementById('itinerary-expect').value
+  };
+
+  emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+      .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+      }, function(error) {
+          console.log('FAILED...', error);
+      });
+}); 
