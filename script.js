@@ -143,13 +143,13 @@ if (contactForm) {
     const message = document.getElementById('message').value;
 
     const params = {
-      from_name: name,
-      email_id: email,
+      name: name,
+      email: email,
       message: message,
     };
 
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
-      .then(function (response) {
+    email_js.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+      .then(function(response) {
         alert('Message sent successfully!');
         contactForm.reset();
       }, function (error) {
@@ -198,11 +198,12 @@ if (radioButtons.length && generalForm && itineraryForm) {
         name: document.getElementById('itinerary-name').value,
         contact: document.getElementById('itinerary-contact').value,
         age: document.getElementById('itinerary-age').value,
+        email: document.getElementById('itinerary-email').value,
         days: document.getElementById('itinerary-no.ofdays').value,
         people: document.getElementById('itinerary-no.ofPeople').value,
         expectations: document.getElementById('itinerary-expect').value
     };
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+    emailjs.send('service_lhalmz6', 'template_ib42rg5', templateParams)
         .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
         }, function(error) {

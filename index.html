@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MyTrip - Your Ultimate Travel Companion - Discover the World with Ease  - Travel with MysTrip - Your one stop premium travel solution.">
+  <meta name="keywords" content="trip planning, itinerary, travel, MysTrip, travel agency, travel company, travel website, travel blog, travel guide, travel tips, travel destinations, travel planning, travel itinerary, travel advice, travel inspiration, travel information, travel resources, travel services, travel solutions, travel support, travel assistance, travel help, travel suggestions, travel recommendations, travel consultation, travel management, travel organization, travel coordination, travel arrangement, travel booking, travel reservation, travel ticket, travel package, travel deal, travel offer, travel discount, travel promotion, travel event, travel activity, travel experience, travel adventure, travel journey, travel exploration, travel discovery, travel vacation, travel holiday, travel trip, travel tour, travel excursion, travel visit, travel stay, travel accommodation, travel lodging, travel hotel, travel resort, travel inn, travel hostel, travel lodge, travel motel, travel guesthouse, travel bed and breakfast, travel homestay, travel rental, travel villa, travel apartment, travel house, travel bungalow, travel cottage, travel cabin, travel chalet, travel tent, travel camp, travel caravan, travel trailer, travel motorhome, travel yacht, travel cruise, travel flight, travel train, travel bus, travel car, travel taxi, travel rental, travel hire, travel driver, travel guide, travel map, travel route, travel itinerary, travel schedule, travel plan, travel program, travel agenda, travel list, travel checklist, travel document, travel passport, travel visa, travel permit, travel insurance, travel health, travel safety, travel security, travel protection, travel emergency, travel assistance, travel support, travel help, travel advice, travel tips, travel recommendations, travel suggestions, travel consultation, travel management, travel organization, travel coordination, travel arrangement, travel booking, travel reservation, travel ticket, travel package, travel deal, travel offer, travel discount, travel promotion, travel event, travel activity, travel experience, travel adventure, travel journey, travel exploration, travel discovery, travel vacation, travel holiday, travel trip, travel tour, travel excursion, travel visit, travel stay, travel accommodation, travel lodging, travel hotel, travel resort, travel inn, travel hostel, travel lodge, travel motel, travel guesthouse, travel bed and breakfast, travel homestay, travel rental, travel villa, travel apartment, travel house, travel bungalow, travel cottage, travel cabin, travel chalet, travel tent, travel camp, travel caravan, travel trailer, travel motorhome, travel yacht, travel cruise, travel flight, travel train, travel bus, travel car, travel taxi, travel">
+  <meta name="author" content="MysTrip">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="google-site-verification" content="google-site-verification=YOUR_GOOGLE_SITE_VERIFICATION_CODE">
+  <meta name="msvalidate.01" content="YOUR_MS_VALIDATE_CODE">
+  <meta name="yandex-verification" content="YOUR_YANDEX_VERIFICATION_CODE">
+  <meta name="alexa-verify" content="YOUR_ALEXA_VERIFICATION_CODE">
+  <meta name="p:domain_verify" content="YOUR_PINTEREST_VERIFICATION_CODE"> 
+
+
   <title>MysTrip</title>
   <link rel="icon" type="img/logo" href="img/logo.jpeg">
   <link rel="stylesheet" href="styles.css">
@@ -183,8 +194,12 @@
         </div>
         
         <div class="form-group">
-          <label for="itinerary-contact">Contact Number</label>
+          <label for="itinerary-contact">Contact Number(optional)</label>
           <input type="number" id="itinerary-contact" placeholder="Contact Number">
+        </div>
+        <div class="form-group">
+          <label for="itinerary-email">Email</label>
+          <input type="email" id="itinerary-email" placeholder="Email">
         </div>
         
         <div class="form-group"> 
@@ -275,7 +290,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script src="script.js"></script>
-
+  <script>
+    (function() {
+        // Initialize EmailJS
+        emailjs.init('Hx65oLNxiKbjLyaRR');
+      })(); 
+  </script>
 </body>
 
 </html>
